@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#F3F1EC"/>
+  <path d="M470 150 a35 35 0 1 1 -1 0" fill="none" stroke="#B0B0B0" stroke-width="16"/>
+  <circle cx="400" cy="430" r="260" fill="#22252B"/>
+  <circle cx="400" cy="430" r="205" fill="#2B2E36"/>
+  <circle cx="400" cy="430" r="150" fill="#8A5A34"/>
+  <circle cx="400" cy="430" r="150" fill="none" stroke="#6E4527" stroke-width="6"/>
+  <rect x="290" y="380" width="220" height="100" rx="10" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="400" y="740" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#555" letter-spacing="2">TRAVEL BOWL — SAMPLE MOCKUP</text>
+</svg>

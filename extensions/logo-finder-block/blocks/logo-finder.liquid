@@ -1,0 +1,124 @@
+{{ 'logo-finder.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="logo-finder"
+  id="logo-finder-{{ block.id }}"
+  data-proxy-base="/apps/logo-finder"
+  data-accent="{{ block.settings.accent_color }}"
+  style="--lf-bg: {{ block.settings.background_color }}; --lf-accent: {{ block.settings.accent_color }}; --lf-text: {{ block.settings.text_color }};"
+  {{ block.shopify_attributes }}
+>
+  <div class="logo-finder__inner">
+    <h2 class="logo-finder__heading">{{ block.settings.heading }}</h2>
+    <p class="logo-finder__subheading">{{ block.settings.subheading }}</p>
+
+    <form class="logo-finder__form" data-lf-form>
+      <div class="logo-finder__input-row">
+        <input
+          type="text"
+          inputmode="url"
+          autocomplete="off"
+          class="logo-finder__input"
+          placeholder="{{ block.settings.placeholder }}"
+          data-lf-url-input
+          required
+        />
+        <button type="submit" class="logo-finder__submit" data-lf-submit aria-label="Find my logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <p class="logo-finder__error" data-lf-error hidden></p>
+    </form>
+
+    <div class="logo-finder__status" data-lf-status hidden>
+      <div class="logo-finder__spinner"></div>
+      <span data-lf-status-text>Working…</span>
+    </div>
+
+    <div class="logo-finder__logo-preview" data-lf-logo-preview hidden>
+      <img data-lf-logo-img alt="Detected logo" />
+      <div class="logo-finder__logo-actions">
+        <p>Is this your logo?</p>
+        <button type="button" class="logo-finder__btn logo-finder__btn--primary" data-lf-confirm-logo>Yes, use this logo</button>
+        <button type="button" class="logo-finder__btn" data-lf-retry>Try a different URL</button>
+      </div>
+    </div>
+
+    <div class="logo-finder__results" data-lf-results hidden>
+      <div class="logo-finder__grid" data-lf-grid></div>
+
+      <form class="logo-finder__email-gate" data-lf-email-form>
+        <p class="logo-finder__email-copy">{{ block.settings.email_gate_copy }}</p>
+        <div class="logo-finder__input-row">
+          <input
+            type="email"
+            autocomplete="email"
+            class="logo-finder__input"
+            placeholder="you@example.com"
+            data-lf-email-input
+            required
+          />
+          <button type="submit" class="logo-finder__btn logo-finder__btn--primary" data-lf-email-submit>
+            Unlock downloads
+          </button>
+        </div>
+        <p class="logo-finder__error" data-lf-email-error hidden></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'logo-finder.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Logo Finder",
+  "target": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "On-brand visuals made by AI"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Create stunning product shots and brand visuals in seconds."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input placeholder",
+      "default": "Paste your website URL"
+    },
+    {
+      "type": "text",
+      "id": "email_gate_copy",
+      "label": "Email gate copy",
+      "default": "Enter your email to unlock your branded product previews."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#F4C430"
+    }
+  ]
+}
+{% endschema %}
