@@ -5,6 +5,10 @@
   border-radius: 12px;
 }
 
+.logo-finder [hidden] {
+  display: none !important;
+}
+
 .logo-finder__inner {
   max-width: 720px;
   margin: 0 auto;
